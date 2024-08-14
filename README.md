@@ -1,6 +1,6 @@
-# LINC: 🚀 Low-Resource In-network Classification and Incremental Model Update Framework
+# LINC: Enabling Low-Resource In-network Classification and Incremental Model Update 🚀 
 ![LINC Project Logo](./assets/image.png)
-LINC is designed to enable in-network classification tasks within low-resource network environments and provides an efficient method for incrementally updating models. See our ICNP24 paper for more details! [Paper]()
+LINC is designed to enable in-network classification tasks within low-resource network environments and provides an efficient strategy for incremental model updates. See our [ICNP 24 paper]() for more details! 
 
 ## Getting Started 🚀
 Before you dive in, make sure to install all the required dependencies.
@@ -10,8 +10,8 @@ pip install -r requirements.txt
 ## Part I: Explicit Rule Generation 📚
 In this section, we'll guide you through training a Neural Network model and converting it into a set of rules.
 ### 1. Data Preparation 📝
-We utilize the ISCX dataset for training the Neural Network model. You can download the preprocessed dataset from the following link and place the `iscx.pkl` file in the root directory of the project.
-[Download ISCX Dataset](https://pan.baidu.com/s/1zOzm9DVIrjYMFD9re08_mg?pwd=3dqn)
+We utilize the ISCX dataset for training the Neural Network model. You can download the preprocessed [dataset](https://pan.baidu.com/s/1zOzm9DVIrjYMFD9re08_mg?pwd=3dqn) and place the `iscx.pkl` file in the root directory of the project.
+
 The features used in the ISCX dataset are as follows:
 ```
 {"protocol": 8, "ip_ihl": 4, "ip_tos": 8, "ip_flags": 8, "ip_ttl": 8,  "tcp_dataofs": 4, "tcp_flags": 8, "tcp_window": 16, "udp_len": 16, "length": 16}
