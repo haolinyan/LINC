@@ -12,6 +12,12 @@ In this section, we'll guide you through training a Neural Network model and con
 ### 1. Data Preparation 📝
 We utilize the ISCX dataset for training the Neural Network model. You can download the preprocessed dataset from the following link and place the `iscx.pkl` file in the root directory of the project.
 [Download ISCX Dataset](https://pan.baidu.com/s/1zOzm9DVIrjYMFD9re08_mg?pwd=3dqn)
+The features used in the ISCX dataset are as follows:
+```
+{"protocol": 8, "ip_ihl": 4, "ip_tos": 8, "ip_flags": 8, "ip_ttl": 8,  "tcp_dataofs": 4, "tcp_flags": 8, "tcp_window": 16, "udp_len": 16, "length": 16}
+```
+Where these integers indicate how many bits used to represent the features. These features are concatenated to a 96-dimensional vector as input for LINC.
+
 ### 2. Model Training and Conversion 🏋️‍♂️
 Run the following command to train the Neural Network model and convert it into a set of rules:
 ```
