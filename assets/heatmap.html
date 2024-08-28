@@ -1,0 +1,113 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=heatmap-cartesian&code=PTAEAcCcFMBdYJbUgWgQcwHYHsYCgBjbTAZ1lAAtsBXSE0AXlAG0ByABlYBpRWBGbrwBMg1gGZRAFlEBWUQDZRAdlEAOUQE5RfTj34C9fEYYmHphuQF0A3HhAQY8JKgw58RUuQAmAQwCe9EzMeKChvAjgAHRQ2LDYohEA-ggUADYJ4IlxJBmJAGapPug5eknw6TwhYaywBJm-sD7YeSW8tZkFRa01dYkA7giYXth9otRemanQmBmRU5josBSseDZ2YFBwiMhoWLjQhMRkoA0-jCzM7DxKPOyR7JY8lzzyt_ePLFegMm8PT1-SHh8DTvf48MS_D7PUBCHiqUGfIE8SQI6FfeSovjgyFPLEwnEsPF4u5_Qm3AnMWGgG6gElQqmvWmoqk_JmkynIilUiFs-k8Kl0p5U4nM8m8p48mmClg8xnS5g81nynmA8Uy7FqhX8ik8vFiPionlfeWqmlCEHs1WMvgyVGq1nwy2c0B8FFO0BGu3al1uqGqvFCA3ur5KVGs3Wh9msqmOqGskVRsWRqGMqWoxly9M8JVZ0D-oS53W29mMqkFktIzVy_momk28Gxp511ViYtQuu68vtoFU5NNoF4jHsutfPhiWs8DT8-U01QDifU8G-_ugRmSGfZ6cL_3Llg03UW7v4l1tldEje0oGNlhzk8U2-u-9Az3sh8C1EPhNQh9fLtPW9TnmH5wuCwGLquYHWn2N6bi6f4wXmyJgbq8q3gyYFEmBIaooB9aarhqryrhL5Qrh77srhg44UC2EUZOLzUaAt5iER1z8qeLCAdah5PIB8asYh1KMTygaMVSu7MLhNGMaOsaWFUoSRAAtj44AABR5NQmAEIgxCgGpCCwNASkAJSgAA3gpoCOLQmAsIZxnMHwHwOUplwuUZblCJYoAAD6-bwKCsGsAC-Jm2Ng4C6XZTCWaEcTYKkiDgAAXBZVngNgJCGQgxBpTUkUrKEIVcFU6CQAgXhpXFYQUNAGAULA-UyOwACk3BWXEqW8Do7VVCVVQAB4AIKDQgJDVZ1fjgNA-UED4RnoLgfgdWEJwLT4aVULQJClWtJDgKkhnDTAm3pWtoQkFQfRpbAkDUAca0hf1e2gH4o3jZNa2wNNs28PNi3LatYSnGlvgBK9l2Hcdp1fRdV0jLd92PWEz3Fa9ABu43UD4qQALKqXDoRKYMaVXFZKmDWlOiQ6A82pAQ1CFAARlMSMPbTuBIJgTW8FQFUAF7EI0FRWVMeS86wBDTEZkDA6EzOxHESn5TafXo1UJDIEgE0sFZNVrZgPhKX9rCUwAwjQPPy2EP0zfldULSp4A26EoPrY0tOhCz0CpET8PXezKNPV7oDGeAFA-NlusGxdrkAMo_Wz50XftkfDH0ABCqS0NT5Op2nPgZ5bqS4PlkDoMzPhqcaYp3DIJlFQXaMXS3xVVPJIXWEAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    // prettier-ignore
+const hours = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
+// prettier-ignore
+const days = [
+    'ip.proto', 'ip_ihl', 'ip_tos', 'ip_flags', 'ip_ttl', 
+    'tcp_dataofs', 'tcp_flags', 'tcp_window', 'udp_len', 'ip.length'
+];
+// prettier-ignore
+const data = [[0, 7, 0.0], [0, 6, 0.0], [0, 5, 0.0], [0, 4, 19.0], [0, 3, 0.0], [0, 2, 8.0], [0, 1, 4.0], [0, 0, 6.0], [1, 3, 0.0], [1, 2, 0.0], [1, 1, 0.0], [1, 0, 0.0], [2, 7, 0.0], [2, 6, 0.0], [2, 5, 0.0], [2, 4, 0.0], [2, 3, 0.0], [2, 2, 0.0], [2, 1, 0.0], [2, 0, 0.0], [3, 7, 0.0], [3, 6, 0.0], [3, 5, 0.0], [3, 4, 0.0], [3, 3, 0.0], [3, 2, 0.0], [3, 1, 31.0], [3, 0, 0.0], [4, 7, 29.0], [4, 6, 15.0], [4, 5, 8.0], [4, 4, 14.0], [4, 3, 0.0], [4, 2, 14.0], [4, 1, 21.0], [4, 0, 7.0], [5, 3, 17.0], [5, 2, 8.0], [5, 1, 0.0], [5, 0, 7.0], [6, 7, 0.0], [6, 6, 0.0], [6, 5, 0.0], [6, 4, 12.0], [6, 3, 15.0], [6, 2, 2.0], [6, 1, 0.0], [6, 0, 2.0], [7, 15, 38.0], [7, 14, 35.0], [7, 13, 12.0], [7, 12, 7.0], [7, 11, 6.0], [7, 10, 13.0], [7, 9, 20.0], [7, 8, 11.0], [7, 7, 34.0], [7, 6, 40.0], [7, 5, 20.0], [7, 4, 14.0], [7, 3, 19.0], [7, 2, 15.0], [7, 1, 10.0], [7, 0, 18.0], [8, 15, 0.0], [8, 14, 0.0], [8, 13, 0.0], [8, 12, 0.0], [8, 11, 0.0], [8, 10, 2.0], [8, 9, 4.0], [8, 8, 3.0], [8, 7, 6.0], [8, 6, 17.0], [8, 5, 12.0], [8, 4, 4.0], [8, 3, 10.0], [8, 2, 6.0], [8, 1, 1.0], [8, 0, 7.0], [9, 15, 0.0], [9, 14, 0.0], [9, 13, 0.0], [9, 12, 0.0], [9, 11, 6.0], [9, 10, 7.0], [9, 9, 6.0], [9, 8, 30.0], [9, 7, 25.0], [9, 6, 19.0], [9, 5, 10.0], [9, 4, 7.0], [9, 3, 21.0], [9, 2, 4.0], [9, 1, 10.0], [9, 0, 18.0]]
+    .map(function (item) {
+    return [item[1], item[0], item[2] || '-'];
+});
+option = {
+  tooltip: {
+    position: 'top'
+  },
+  grid: {
+    height: '50%',
+    top: '10%'
+  },
+  xAxis: {
+    type: 'category',
+    data: hours,
+    splitArea: {
+      show: true
+    }
+  },
+  yAxis: {
+    type: 'category',
+    data: days,
+    splitArea: {
+      show: true
+    }
+  },
+  visualMap: {
+    min: 0,
+    max: 10,
+    calculable: true,
+    orient: 'horizontal',
+    left: 'center',
+    bottom: '15%'
+  },
+  series: [
+    {
+      name: 'maxCount',
+      type: 'heatmap',
+      data: data,
+      label: {
+        show: true
+      },
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      }
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
