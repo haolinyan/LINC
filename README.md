@@ -17,7 +17,7 @@ The features used in the ISCX dataset are as follows:
 {"protocol": 8, "ip_ihl": 4, "ip_tos": 8, "ip_flags": 8, "ip_ttl": 8,  "tcp_dataofs": 4, "tcp_flags": 8, "tcp_window": 16, "udp_len": 16, "length": 16}
 ```
 Where these integers indicate how many bits used to represent the features. 
-Each of these features is converted into several different binary features, and all the binary features are concatenated to a 96-dimensional vector as input for LINC.
+Each of these features is converted into several different bit features, and all the bit features are concatenated to a 96-dimensional vector as input for LINC.
 
 ### 2. Model Training and Conversion 🏋️‍♂️
 Run the following command to train the Neural Network model and convert it into a set of rules:
@@ -26,8 +26,10 @@ python train_nn.py
 ```
 During execution, the log will display detailed information about the training and conversion process, including model accuracy, the number of derived rules, and conversion time. The converted rules will be saved in the `checkpoints/iscx/rules.txt` file.
 
-<iframe src="./assets/heatmap.html" width="600" height="400"></iframe>
+#### Visualize the overall importance of each input bit feature
+After model training and conversion, we counted the number of times each bit feature was selected by aggregating across all the learned rules.
 
+![LINC Project Logo](./assets/heatmap.png)
 ## Part II: Incremental Model Update 🔄
 In this section, we demonstrate how to incrementally update LINC rules with just a few labeled samples.
 Consistent with our paper, we first train a Neural Network model using three categories of traffic types (Chat, File Transfer, and Email).
