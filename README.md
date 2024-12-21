@@ -1,6 +1,6 @@
 # LINC: Enabling Low-Resource In-network Classification and Incremental Model Update 🚀 
 ![LINC Project Logo](./assets/image.png)
-LINC is designed to enable in-network classification tasks within low-resource network environments and provides an efficient strategy for incremental model updates. See our [ICNP 24 paper]() for more details! 
+LINC is designed to enable in-network classification tasks within low-resource network environments and provides an efficient strategy for incremental model updates. See our [ICNP 24 paper](https://smartinternet.group/wp-content/uploads/2024/09/paper-yhl-linc-icnp.pdf) for more details! 
 
 ## Getting Started 🚀
 Before you dive in, make sure to install all the required dependencies.
